@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Module - Entête de courrier</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      .btn-imprimer {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        border-radius: 4px;
+        border: 1px solid #2c3e50;
+        background-color: #2c3e50;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* Mise en page impression A4 */
+      @page {
+        size: A4;
+        margin: 20mm;
+      }
+
+      @media print {
+        .btn-imprimer {
+          display: none;
+        }
+      }
+
+      .entete-courrier {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+
+      .entete-gauche img {
+        height: 120px;
+      }
+
+      .entete-centre {
+        flex: 1;
+        text-align: center;
+      }
+
+      .texte-uc {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .sous-texte-uc {
+        font-size: 15px;
+        font-family: Georgia, "Times New Roman", serif;
+        color: green;
+        margin-top: 4px;
+      }
+
+      .entete-droite img {
+        height: 90px;
+      }
+
+      .colombe-wrapper {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .colombe-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Zone exemple de début de courrier */
+      .zone-courrier {
+        margin-top: 30px;
+        font-size: 14px;
+      }
+
+      .zone-courrier .date-droite {
+        text-align: right;
+      }
+
+      .zone-courrier .destinataire {
+        margin-top: 5px;
+        line-height: 1.4;
+        text-align: right;
+      }
+
+      .pied-page {
+        position: fixed;
+        bottom: 5mm;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 11px;
+        color: #333;
+        padding: 0 20mm;
+        line-height: 1.6;
+      }
+
+      .pied-page-slogan {
+        font-weight: bold;
+        color: green;
+        margin-bottom: 3px;
+      }
+
+      .pied-page-info {
+        font-size: 10px;
+        color: #333;
+      }
+
+      .pied-page-info span {
+        margin: 0 5px;
+      }
+
+      .pied-page-legal {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn-imprimer" onclick="window.print()">
+      Imprimer ce courrier
+    </button>
+    <!-- MODULE ENTÊTE DE COURRIER RÉUTILISABLE -->
+    <div class="entete-courrier">
+      <div class="entete-gauche">
+        <img
+          src="Photos ucs44/mieux-vivre-ensemble-mardi-11-mars-20141552mieuxvivre.jpg"
+          alt="Mieux vivre ensemble"
+        />
+      </div>
+      <div class="entete-centre">
+        <div class="texte-uc">Union Citoyenne Solidarité 44</div>
+        <div class="sous-texte-uc">
+          Association : 5 rue Lucie Aubrac 44800 St-Herblain
+        </div>
+      </div>
+      <div class="entete-droite">
+        <div class="colombe-wrapper">
+          <img
+            src="colombe paix-saint esprit..gif"
+            alt="Colombe - paix - Saint-Esprit"
+          />
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="zone-courrier">
+      <!-- Saisir ici la date, le destinataire et le texte du courrier -->
+      <p class="date-droite"><!-- [Ville], le [date] --></p>
+      <div class="destinataire">
+        <!--
+        [Nom du destinataire]
+        [Fonction éventuelle]
+        [Organisation]
+        [Adresse 1]
+        [Adresse 2]
+        [Code postal] [Ville]
+        -->
+      </div>
+      <p><!-- Madame, Monsieur, [Texte de votre courrier ici...] --></p>
+    </div>
+
+    <div class="pied-page">
+      <div class="pied-page-slogan">
+        Avec UCS44, ensemble pour aller plus loin et être plus fort
+      </div>
+      <div class="pied-page-info">
+        Association N° W442015645
+        <br />
+        <span>📧 mveucs44@gmail.com</span>
+        <span>|</span>
+        <span>📞 0661039125</span>
+        <br />
+        🌐 mveucs44.fr
+      </div>
+    </div>
+  </body>
+</html>

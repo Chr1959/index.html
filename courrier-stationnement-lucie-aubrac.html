@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Courrier - Problèmes de stationnement 5 et 3 rue Lucie Aubrac</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        margin-left: 40px;
+      }
+
+      .btn-imprimer {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        border-radius: 4px;
+        border: 1px solid #2c3e50;
+        background-color: #2c3e50;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* Mise en page impression A4 */
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      @media print {
+        .btn-imprimer {
+          display: none;
+        }
+      }
+
+      .entete-courrier {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .entete-gauche img {
+        height: 90px;
+      }
+
+      .entete-centre {
+        flex: 1;
+        text-align: center;
+      }
+
+      .texte-uc {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .sous-texte-uc {
+        font-size: 15px;
+        font-family: Georgia, "Times New Roman", serif;
+        color: green;
+        margin-top: 4px;
+      }
+
+      .entete-droite img {
+        height: 90px;
+      }
+
+      .colombe-wrapper {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .colombe-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Zone exemple de début de courrier */
+      .zone-courrier {
+        margin-top: 5px;
+        font-size: 12px;
+      }
+
+      .zone-courrier .date-droite {
+        text-align: right;
+        margin-bottom: 25px;
+      }
+
+      .zone-courrier .destinataire {
+        margin-top: 12px;
+        margin-bottom: 25px;
+        line-height: 1.6;
+        text-align: right;
+      }
+
+      .zone-courrier p {
+        text-align: justify;
+        line-height: 1.5;
+        margin-bottom: 6px;
+      }
+
+      .zone-courrier h3 {
+        margin-top: 8px;
+        margin-bottom: 4px;
+        font-size: 12px;
+      }
+
+      .zone-courrier ul {
+        margin-left: 24px;
+        margin-bottom: 12px;
+      }
+
+      .zone-courrier li {
+        margin-bottom: 3px;
+        line-height: 1.4;
+      }
+
+      .pied-page {
+        margin-top: 50px;
+        padding-top: 8px;
+        border-top: 1px solid #ccc;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 11px;
+        color: #333;
+        line-height: 1.4;
+      }
+
+      @media print {
+        .pied-page {
+          margin-top: 15px;
+        }
+      }
+
+      .pied-page-slogan {
+        font-weight: bold;
+        color: green;
+        margin-bottom: 3px;
+      }
+
+      .pied-page-info {
+        font-size: 11px;
+        color: #333;
+      }
+
+      .pied-page-info span {
+        margin: 0 5px;
+      }
+
+      .pied-page-legal {
+        color: black;
+      }
+
+      .signature {
+        margin-top: 10px;
+      }
+
+      .mention-recommande {
+        font-style: italic;
+        font-size: 10px;
+        margin-top: 8px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn-imprimer" onclick="window.print()">
+      Imprimer ce courrier
+    </button>
+    <!-- ENTÊTE DE COURRIER -->
+    <div class="entete-courrier">
+      <div class="entete-gauche">
+        <img
+          src="../Photos ucs44/mieux-vivre-ensemble-mardi-11-mars-20141552mieuxvivre.jpg"
+          alt="Mieux vivre ensemble"
+        />
+      </div>
+      <div class="entete-centre">
+        <div class="texte-uc">Union Citoyenne Solidarité 44</div>
+        <div class="sous-texte-uc">
+          Association : 5 rue Lucie Aubrac 44800 St-Herblain
+        </div>
+      </div>
+      <div class="entete-droite">
+        <div class="colombe-wrapper">
+          <img
+            src="../colombe paix-saint esprit..gif"
+            alt="Colombe - paix - Saint-Esprit"
+          />
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="zone-courrier">
+      <p class="date-droite">Saint-Herblain, le 11 février 2026</p>
+
+      <div class="destinataire">
+        Monsieur David Martineau<br />
+        Directeur<br />
+        Habitat 44<br />
+        3, Boulevard Alexandre Millerand<br />
+        44204 Nantes Cedex 2
+      </div>
+
+      <p>
+        <strong
+          >Objet : Demande de solution urgente aux problèmes de stationnement –
+          5 et 3 rue Lucie Aubrac, Saint-Herblain</strong
+        >
+      </p>
+
+      <p>Madame, Monsieur,</p>
+
+      <p>
+        Nous, locataires des résidences situées au 5 et 3 rue Lucie Aubrac à
+        Saint-Herblain, portons à votre connaissance, ce jour, la situation
+        critique concernant les places de stationnement de nos immeubles.
+      </p>
+
+      <p>
+        Au quotidien, les résidents des immeubles voisins et les visiteurs
+        extérieurs utilisent nos places de stationnement de manière systématique
+        et abusive. Ces intrusions nous empêchent d'accéder à nos emplacements,
+        que nous payons mensuellement 10,10 euros.
+      </p>
+
+      <p>Les abus identifiés incluent notamment :</p>
+
+      <ul>
+        <li>
+          L'occupation quotidienne de nos places par les résidents des immeubles
+          d'en face ;
+        </li>
+        <li>
+          Le stationnement direct devant nos emplacements réservés, nous
+          empêchant physiquement d'accéder à nos places ;
+        </li>
+        <li>
+          L'utilisation massive de notre périmètre par les fidèles de la mosquée
+          voisine le vendredi, alors que le parking du Vigneau est situé à
+          proximité immédiate ;
+        </li>
+        <li>
+          L'inefficacité totale des panneaux d'interdiction de stationnement
+          installés précédemment.
+        </li>
+      </ul>
+
+      <p>
+        Ce problème persiste sans interruption depuis la création du site en
+        2015 et malgré nos multiples revendications, aucune solution durable n'a
+        été mise en place.
+      </p>
+
+      <p>
+        Par cette pétition, signée par l'ensemble des locataires du 5 et 3 rue
+        Lucie Aubrac, nous adressons à notre bailleur Habitat 44 les demandes
+        suivantes :
+      </p>
+
+      <ul>
+        <li>
+          Installer une barrière d'accès équipée d'un système de badge pour les
+          résidents, permettant de sécuriser définitivement nos places de
+          stationnement et de résoudre durablement cette problématique ;
+        </li>
+        <li>
+          À défaut d'installation d'une barrière, nous demandons formellement
+          des propositions concrètes et viables pour pallier ce problème
+          chronique qui impacte quotidiennement notre qualité de vie.
+        </li>
+      </ul>
+
+      <p>
+        Nous demandons une réponse détaillée et un calendrier précis pour la
+        mise en œuvre de l'une de ces solutions.
+      </p>
+
+      <p>
+        En vous remerciant par avance de l'attention que vous accorderez à notre
+        demande, nous vous prions d'agréer, Madame, Monsieur, l'expression de
+        notre considération distinguée.
+      </p>
+
+      <div class="signature">
+        <p>
+          <strong>Les locataires du 5 et 3 rue Lucie Aubrac</strong><br />
+          Saint-Herblain
+        </p>
+      </div>
+
+      <div class="mention-recommande">
+        <p>Envoyé en courrier recommandé avec avis de réception (AR)</p>
+      </div>
+    </div>
+
+    <div class="pied-page">
+      <div class="pied-page-slogan">
+        Avec UCS44, ensemble pour aller plus loin et être plus fort
+      </div>
+      <div class="pied-page-info">
+        Association N° W442015645
+        <br />
+        <span>📧 mveucs44@gmail.com</span>
+        <span>|</span>
+        <span>📞 0661039125</span>
+        <br />
+        🌐 mveucs44.fr
+      </div>
+    </div>
+  </body>
+</html>

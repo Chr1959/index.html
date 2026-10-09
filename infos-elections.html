@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infos Elections - Habitat 44</title>
+  <style>
+    body {
+      margin: 0;
+      background: #eef2f5;
+      color: #263238;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #8a4b00;
+      color: white;
+      padding: 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-style: italic;
+    }
+
+    nav {
+      background: #b45309;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .courrier {
+      width: 100%;
+      min-height: 900px;
+      border: 0;
+      background: white;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .notice {
+      margin: 0 0 16px;
+      padding: 14px 18px;
+      border-left: 5px solid #b45309;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      main {
+        padding: 10px;
+      }
+
+      .courrier {
+        min-height: 780px;
+      }
+    }
+
+    @media print {
+      header,
+      nav,
+      .notice {
+        display: none;
+      }
+
+      main,
+      .courrier {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        min-height: 297mm;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Infos Elections</h1>
+    <p>Élections des représentants des locataires d'Habitat 44</p>
+  </header>
+
+  <nav>
+    <a href="../locataires-habitat-44.html">← Retour à Habitat 44</a>
+  </nav>
+
+  <main>
+    <p class="notice">Le courrier ci-dessous est le document joint « Courrier elections R des Locataires ».</p>
+    <iframe
+      class="courrier"
+      title="Courrier elections R des Locataires"
+      src="../Photos Habitat 44/Courrier elections R des Locataires.pdf"
+    ></iframe>
+  </main>
+</body>
+</html>

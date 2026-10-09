@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Courrier - Convocation à expertise - Rue Lucie Aubrac</title>
+    <style>
+      :root {
+        --paper: #f7f3ee;
+        --ink: #1f1f1f;
+        --muted: #4d4d4d;
+        --line: #bcae9a;
+        --brown: #7c4d2a;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #d9d9d9;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 12px auto;
+        background: #f6f4f2;
+        padding: 8mm 12mm 0;
+        border: 1px solid rgba(90, 68, 50, 0.12);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      @media print {
+        html, body {
+          margin: 0 !important;
+          padding: 0 !important;
+          background: white;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        body {
+          width: 210mm;
+          min-height: 297mm;
+        }
+
+        .page {
+          width: 210mm;
+          min-height: 297mm;
+          margin: 0;
+          padding: 10mm 12mm 8mm;
+          border: none;
+          box-shadow: none;
+        }
+
+        .btn-imprimer {
+          display: none !important;
+        }
+      }
+
+      .btn-imprimer {
+        display: inline-block;
+        margin-bottom: 18px;
+        padding: 8px 14px;
+        background: #2d3f53;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      .ornament {
+        width: 100%;
+        height: 56px;
+        display: block;
+        overflow: visible;
+      }
+
+      .ornament path {
+        fill: none;
+        stroke: #8a2d2d;
+        stroke-width: 3.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .ornament .diamond {
+        fill: #8a2d2d;
+        stroke: #8a2d2d;
+        stroke-width: 1.2;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        padding: 0 0 8px;
+        border-bottom: 1px solid rgba(67, 54, 43, 0.28);
+        width: 100%;
+      }
+
+      .street-sign {
+        width: 330px;
+        height: 132px;
+        background: linear-gradient(135deg, #f3eee6, #e5d7c4);
+        border: 3px solid #7c4d2a;
+        border-radius: 4px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 8px 16px;
+        box-shadow: inset 0 0 0 2px rgba(90, 69, 53, 0.18);
+      }
+
+      .street-sign::before,
+      .street-sign::after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: rgba(124, 77, 42, 0.3);
+      }
+
+      .street-sign::before {
+        top: 8px;
+        left: 12px;
+      }
+
+      .street-sign::after {
+        bottom: 8px;
+        right: 12px;
+      }
+
+      .street-sign-inner {
+        font-family: Georgia, "Times New Roman", serif;
+        color: #1a1a1a;
+        text-transform: uppercase;
+        line-height: 0.94;
+        letter-spacing: 0.02em;
+      }
+
+      .street-sign-inner .top {
+        display: block;
+        font-size: 1.45rem;
+        font-weight: 700;
+      }
+
+      .street-sign-inner .mid {
+        display: block;
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-top: 4px;
+        font-style: italic;
+      }
+
+      .street-sign-inner .bottom {
+        display: block;
+        font-size: 0.72rem;
+        margin-top: 6px;
+        text-transform: none;
+        font-style: italic;
+      }
+
+      .address-side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+      }
+
+      .address-block {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 18px;
+        line-height: 1.3;
+        color: #1b1b1b;
+        text-align: center;
+      }
+
+      .address-block .title {
+        display: block;
+        font-size: 1.2em;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .date-droite {
+        text-align: center;
+        margin: 10px 0 0;
+        font-size: 14px;
+      }
+
+      .letter-body {
+        margin-top: 10px;
+        font-size: 10.6px;
+        line-height: 1.28;
+        max-width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .meta {
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
+
+      .meta-line {
+        margin: 0;
+        font-size: 11.4px;
+      }
+
+      .subject {
+        margin: 8px 0 7px;
+        font-weight: 700;
+        font-size: 10.8px;
+      }
+
+      .letter-body p {
+        margin: 0 0 6px;
+      }
+
+      .signature {
+        margin-top: 10px;
+        line-height: 1.4;
+      }
+
+      .signature strong {
+        font-size: 14px;
+      }
+
+      .contact-banner {
+        width: calc(100% + 24mm);
+        margin-left: -12mm;
+        margin-right: -12mm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        background: linear-gradient(180deg, #4d4e7f 0%, #4b4d7a 100%);
+        color: #f3f3f3;
+        padding: 10px 18px;
+        margin-top: 18px;
+        border-radius: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+      }
+
+      .contact-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #f0f0f0;
+        color: #4d4d7a;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 17px;
+        flex-shrink: 0;
+      }
+
+      .contact-phone,
+      .contact-mail {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+      }
+
+      .contact-phone .value,
+      .contact-mail .value {
+        font-weight: 700;
+      }
+
+      .bottom-design {
+        width: calc(100% + 24mm);
+        margin-left: -12mm;
+        margin-right: -12mm;
+        height: 22px;
+        position: relative;
+        background: transparent;
+        border-top: none;
+        overflow: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <button class="btn-imprimer" onclick="window.print()">Imprimer ce courrier</button>
+
+      <svg class="ornament" viewBox="0 0 840 70" aria-hidden="true">
+        <path d="M15 45 C 60 10, 110 10, 150 45 S 230 80, 280 45 S 360 10, 410 45 S 500 80, 545 45 S 620 10, 670 45 S 740 80, 790 45"/>
+        <path d="M15 45 C 55 62, 90 62, 135 45 S 215 30, 280 45 S 360 62, 410 45 S 500 30, 545 45 S 620 62, 670 45 S 760 30, 790 45"/>
+        <path d="M295 45 L 330 25 L 365 45 L 330 65 Z" class="diamond"/>
+      </svg>
+
+      <div class="header">
+        <div class="street-sign" aria-label="Rue Lucie Aubrac">
+          <div class="street-sign-inner">
+            <span class="top">RUE</span>
+            <span class="mid">Lucie AUBRAC</span>
+            <span class="bottom">Résistante</span>
+          </div>
+        </div>
+
+        <div class="address-side">
+          <div class="address-block">
+            <span class="title">Habitat44</span>
+            3 boulevard Alexandre Millérand<br />
+            BP 50432 Nantes Cedex 2
+          </div>
+          <p class="date-droite">Saint-Herblain, le 9 septembre 2026</p>
+        </div>
+      </div>
+
+      <div class="letter-body">
+        <div class="meta">
+          <p class="meta-line">Les locataires des 3 et 5,</p>
+          <p class="meta-line">44800 Saint-Herblain</p>
+        </div>
+
+        <p class="subject">
+          Objet : Votre courrier du 12 juin 2026 – Convocation à expertise
+        </p>
+
+        <p>Madame, Monsieur,</p>
+
+        <p>
+          Le mardi 8 septembre 2026 à 10 h 30, le passage des experts du
+          service Assurance Habitat 44 était prévu. Nous n’avons vu personne
+          venir rencontrer les locataires du 5, rue Lucie-Aubrac. Pourquoi ?
+        </p>
+
+        <p>
+          Les trois « mousquetaires » sont passés au bâtiment 3 et ont visité 3
+          locataires sur 6 :
+        </p>
+
+        <p>
+          <strong>01 – Mme Christelle Jedaidi</strong>, qui a eu droit à une
+          réflexion déplaisante et déplacée de la part du monsieuur à lunettes
+          présent sur le site, lui faisant remarquer qu’une terrasse, ça
+          s’entretient et ça se nettoie ! (Terrasse ajourée qui subit toutes les
+          intempéries.) Est-ce la mission qui lui a été confiée ?
+        </p>
+
+        <p>
+          <strong>02 – Mme Besseau</strong> et <strong>03 – Mme Toulagui</strong>,
+          qui les ont interpellés à l’extérieur, car l’équipe d’expertise quittait
+          le périmètre et ne serait pas passée examiner sa terrasse.
+        </p>
+
+        <p>
+          Certains locataires, ce jour-là, ont posé un jour de congé pour
+          finalement ne voir personne venir contrôler leur terrasse. Bravo ! Où est
+          le dialogue chez eux ?
+        </p>
+
+        <p>
+          La moindre des choses aurait été de passer chez les locataires pour les
+          informer qu’ils ne visiteraient pas leur terrasse, pour telle ou telle
+          raison, au lieu d’agir ainsi. L’équipe des trois « mousquetaires » a
+          déserté le territoire sans rien dire à qui que ce soit.
+        </p>
+
+        <p>
+          Le courrier reçu en date du 26 juin 2026 dit ceci :
+        </p>
+
+        <p>
+          « En raison du nombre de logements à visiter, la date ne pourra pas être
+          reportée. Aussi, nous vous remercions de bien vouloir être impérativement
+          présente au jour et à l’heure indiqués ci-dessus et de nous confirmer votre
+          présence sur place ou celle d’un tiers par retour. »
+        </p>
+
+        <p>
+          Mme Pretet, qui est très malade, en invalidité et bénéficiaire de l’AAH,
+          s’est levée très tôt ce jour-là pour eux, alors qu’elle aurait pu rester se
+          reposer.
+        </p>
+
+        <p>
+          Nous vous prions de bien vouloir nous expliquer cette absence, cette
+          organisation et cette manière d’agir, ainsi que les suites concrètes qui
+          seront données à ce dossier.
+        </p>
+
+        <p>
+          Nous vous prions d’agréer, Madame, Monsieur, l’expression de notre
+          considération distinguée.
+        </p>
+
+        <div class="signature">
+          <strong>Les locataires des 3 et 5 rue Lucie Aubrac</strong><br />
+          Saint-Herblain
+        </div>
+
+        <div class="contact-banner" aria-label="Contact des locataires">
+          <div class="contact-phone">
+            <span class="contact-icon">◉</span>
+            <span class="value">06.61.03.91.25</span>
+          </div>
+
+          <div class="contact-mail">
+            <span class="contact-icon">✉</span>
+            <span class="value">udcsf44@la-cst.fr</span>
+          </div>
+
+          <div class="contact-mail">
+            <span class="contact-icon">✉</span>
+            <span class="value">charles.robin@gmail.com</span>
+          </div>
+        </div>
+        <div class="bottom-design" aria-hidden="true"></div>
+        <svg class="ornament" viewBox="0 0 840 70" aria-hidden="true" style="margin-top: 4px;">
+          <path d="M15 45 C 60 10, 110 10, 150 45 S 230 80, 280 45 S 360 10, 410 45 S 500 80, 545 45 S 620 10, 670 45 S 740 80, 790 45"/>
+          <path d="M15 45 C 55 62, 90 62, 135 45 S 215 30, 280 45 S 360 62, 410 45 S 500 30, 545 45 S 620 62, 670 45 S 760 30, 790 45"/>
+          <path d="M295 45 L 330 25 L 365 45 L 330 65 Z" class="diamond"/>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>

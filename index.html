@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Union Citoyenne Solidarité 44</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6; 
+        background-color: #f9f9f9;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #587189;
+        color: white;
+        padding: 20px;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      header p {
+        font-style: italic;
+        margin: 5px 0 0;
+      }
+
+      nav {
+        background: #4f6f8f;
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 10px 0;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.95rem;
+      }
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #dfeefb;
+        list-style: none;
+        padding: 5px 0;
+        margin: 0;
+        min-width: 180px;
+        z-index: 1000;
+      }
+
+      .dropdown-menu li {
+        display: block;
+        margin: 0;
+      }
+
+      .dropdown-menu li a {
+        display: block;
+        padding: 8px 15px;
+        text-align: left;
+        font-size: 11px;
+        font-family: "Spectral", serif;
+        color: #000000;
+      }
+
+      .dropdown:hover .dropdown-menu,
+      .dropdown:focus-within .dropdown-menu {
+        display: block;
+      }
+
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+
+      .theme-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 30px 20px 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .theme-card {
+        background: white;
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        border-top: 5px solid;
+      }
+
+      .theme-card h2 {
+        margin-top: 0;
+        font-size: 1.45em;
+      }
+
+      .theme-card h3 {
+        margin-top: 18px;
+        font-size: 1.1em;
+      }
+
+      .theme-intro {
+        border-color: #587189;
+      }
+
+      .theme-udcsf {
+        border-color: #0b6b8f;
+      }
+
+      .theme-values {
+        border-color: #c2410c;
+      }
+
+      .theme-impact {
+        border-color: #7c3aed;
+      }
+
+      .theme-card a {
+        color: #0b6b8f;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .theme-card a:hover {
+        text-decoration: underline;
+      }
+
+      .theme-values ul {
+        padding-left: 22px;
+        margin-bottom: 0;
+      }
+
+      .theme-values li {
+        margin-bottom: 10px;
+      }
+
+      .theme-impact .impact-number {
+        display: block;
+        color: #7c3aed;
+        font-size: 2.2em;
+        font-weight: bold;
+        line-height: 1.1;
+      }
+
+      .pdf-preview {
+        margin-top: 20px;
+        border: 1px solid #dfe3e8;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #f7f9fb;
+      }
+
+      .pdf-preview iframe {
+        width: 50%;
+        min-width: 280px;
+        max-width: 100%;
+        height: 600px;
+        border: 0;
+        display: block;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 768px) {
+        .pdf-preview iframe {
+          width: 100%;
+        }
+      }
+
+      aside {
+        flex: 1;
+        background: #ecf0f1;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .widget {
+        margin-bottom: 20px;
+      }
+
+      footer {
+        text-align: center;
+        background: #2c3e50;
+        color: white;
+        padding: 15px;
+        margin-top: 20px;
+      }
+
+      .welcome-banner {
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .welcome-banner h2 {
+        font-size: 2em;
+        margin: 0 0 10px 0;
+      }
+
+      .welcome-banner p {
+        font-size: 1.1em;
+        margin: 0;
+      }
+
+      .initiative-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto 30px;
+        padding: 0 20px;
+      }
+
+      .initiative-card {
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        border-top: 5px solid #0b6b8f;
+      }
+
+      .initiative-card h2 {
+        margin: 0 0 10px;
+        color: #0b6b8f;
+        font-size: 1.35em;
+      }
+
+      .initiative-card p {
+        margin: 0 0 16px;
+        color: #404040;
+      }
+
+      .initiative-card a {
+        color: #0b6b8f;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .initiative-card a:hover {
+        text-decoration: underline;
+      }
+
+      .initiative-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+      }
+
+      .share-buttons {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .share-buttons a {
+        display: inline-block;
+        margin: 0 10px;
+        padding: 8px 14px;
+        border-radius: 4px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.95em;
+      }
+
+      .share-whatsapp {
+        background-color: #25d366;
+      }
+
+      /* Bloc d'actualité */
+      .news-block {
+        background: #fff;
+        border-radius: 8px;
+        padding: 16px;
+        margin-top: 20px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .news-content {
+        flex: 1;
+      }
+      .news-title {
+        display: inline-block;
+        background: #ff8c00;
+        color: white;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-weight: bold;
+        margin-bottom: 12px;
+      }
+      .news-text {
+        color: #0b7a2b;
+        font-size: 1em;
+        line-height: 1.5;
+        margin: 12px 0;
+      }
+      .news-image {
+        max-width: 100px;
+        height: auto;
+        border-radius: 4px;
+      }
+
+      /* Barre de contact en haut du site */
+      .topbar {
+        background: #f39c12;
+        color: #0b2d4a;
+        font-weight: bold;
+        font-size: 0.95em;
+      }
+      .topbar .topbar-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 6px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .topbar .contact-info span {
+        margin-right: 12px;
+      }
+      @media (max-width: 600px) {
+        .topbar .contact-info {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="contact-info">
+          <span
+            ><strong>mveucs44</strong> — ensemble pour aller plus loin et être
+            plus fort</span
+          >
+          <span style="margin-left: 12px"
+            >Contactez-nous :
+            <a
+              href="mailto:mveucs44@gmail.com"
+              style="color: inherit; text-decoration: none"
+              >mveucs44@gmail.com</a
+            >
+            — 📞 06.61.03.91.25</span
+          >
+        </div>
+    </div>
+    <header>
+      <!-- Logo à gauche -->
+      <img
+        src="Photos ucs44/mieux-vivre-ensemble-mardi-11-mars-20141552mieuxvivre.jpg"
+        alt="Logo Mieux Vivre Ensemble"
+        style="width: 100px; height: auto"
+      />
+      <!-- Titre centré -->
+      <div style="text-align: center; flex-grow: 1">
+        <h1>Union Citoyenne Solidarité 44</h1>
+        <p>
+          Agir ensemble pour la solidarité et la citoyenneté en Loire-Atlantique
+        </p>
+      </div>
+      <!-- Photo à droite -->
+      <img
+        src="Photos ucs44/Capture-fi11277515x190.jpg"
+        alt="Photo représentative"
+        style="width: 100px; height: auto"
+      />
+    </header>
+    <nav>
+      <ul>
+        <li class="dropdown">
+          <a href="index.html">Accueil</a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="allo-habitat44.html">Allo Habitat44</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="udcsf44.html">UDCSF44</a>
+          <ul class="dropdown-menu">
+            <li><a href="prochaine-commission-logement-csf.html">Prochaine commission logement CSF</a></li>
+            <li><a href="lancement-campagne.html">Lancement de la campagne</a></li>
+            <li><a href="permanences-logement.html">Permancences Logement</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="locataires-habitat-44.html">Habitat44</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown">
+              <a href="elections-representants-locataires-2026.html">Élections HLM 2026</a>
+              <ul class="dropdown-menu">
+                <li><a href="habitat44/infos-elections.html">Infos Elections</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="reunions.html">Réunions</a>
+          <ul class="dropdown-menu">
+            <li><a href="reunions.html">Toutes les réunions</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="evenements.html">Événements</a>
+          <ul class="dropdown-menu">
+            <li><a href="evenements.html">Tous les événements</a></li>
+          </ul>
+        </li>
+        <li><a href="nous-rejoindre.html">Nous Rejoindre</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="welcome-banner">
+      <h2>Bienvenue sur notre site</h2>
+      <p>Découvrez nos initiatives pour une société plus solidaire</p>
+    </div>
+
+    <section class="initiative-grid" aria-label="Initiatives principales">
+      <article class="initiative-card">
+        <h2>Lancement de la campagne</h2>
+        <p>Suivez la préparation et le lancement de notre campagne pour le développement de la solidarité.</p>
+        <a href="lancement-campagne.html">Consulter la campagne →</a>
+      </article>
+
+      <article class="initiative-card">
+        <h2>Élections des représentants des locataires 2026</h2>
+        <p>Retrouvez les informations et les démarches liées aux élections des représentants des locataires.</p>
+        <a href="elections-representants-locataires-2026.html">Consulter les élections →</a>
+      </article>
+    </section>
+
+    <section class="theme-section" aria-label="Thèmes principaux">
+      <article class="theme-card theme-intro">
+        <h2>Qui sommes-nous ?</h2>
+        <p>
+          L'Union Citoyenne Solidarité 44 est une association engagée depuis
+          plusieurs années pour renforcer la solidarité, promouvoir la
+          citoyenneté active et soutenir les initiatives locales en
+          Loire-Atlantique.
+        </p>
+        <p>
+          Nous réunissons les citoyens, les associations et les acteurs locaux
+          autour de démarches concrètes et transparentes.
+        </p>
+      </article>
+
+      <article class="theme-card theme-udcsf">
+        <h2>UDCSF44</h2>
+        <p>
+          Retrouvez les actions, les élections des représentants des locataires
+          et les documents de la CSF dans un seul topic.
+        </p>
+        <p>
+          <a href="udcsf44.html">Accéder au topic UDCSF44 →</a>
+        </p>
+      </article>
+
+      <article class="theme-card theme-values">
+        <h2>Nos Valeurs</h2>
+        <ul>
+          <li><strong>Solidarité</strong> : entraide et soutien mutuel.</li>
+          <li><strong>Citoyenneté</strong> : contribution au bien commun.</li>
+          <li><strong>Inclusion</strong> : accueil de tous les publics.</li>
+          <li><strong>Transparence</strong> : actions ouvertes et vérifiables.</li>
+        </ul>
+      </article>
+
+      <article class="theme-card theme-impact">
+        <h2>Notre Impact</h2>
+        <span class="impact-number">2015</span>
+        <p>
+          Depuis notre création, nous avons accompagné de nombreuses personnes
+          dans leurs démarches administratives et leurs démarches collectives.
+        </p>
+      </article>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pétition - Problèmes de stationnement 5 et 3 rue Lucie Aubrac</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        margin-left: 40px;
+      }
+
+      .btn-imprimer {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        border-radius: 4px;
+        border: 1px solid #2c3e50;
+        background-color: #2c3e50;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* Mise en page impression A4 */
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      @media print {
+        .btn-imprimer {
+          display: none;
+        }
+      }
+
+      .entete-courrier {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .entete-gauche img {
+        height: 90px;
+      }
+
+      .entete-centre {
+        flex: 1;
+        text-align: center;
+      }
+
+      .texte-uc {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .sous-texte-uc {
+        font-size: 15px;
+        font-family: Georgia, "Times New Roman", serif;
+        color: green;
+        margin-top: 4px;
+      }
+
+      .entete-droite img {
+        height: 90px;
+      }
+
+      .colombe-wrapper {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .colombe-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .titre-petition {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 20px 0;
+        text-transform: uppercase;
+      }
+
+      .contenu-petition {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .contenu-petition p {
+        text-align: justify;
+        margin-bottom: 10px;
+      }
+
+      .contenu-petition ul {
+        margin-left: 20px;
+        margin-bottom: 10px;
+      }
+
+      .contenu-petition li {
+        margin-bottom: 5px;
+      }
+
+      .tableau-signatures {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 12px;
+      }
+
+      .tableau-signatures th {
+        background-color: #2c3e50;
+        color: white;
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #333;
+      }
+
+      .tableau-signatures td {
+        padding: 12px 8px;
+        border: 1px solid #333;
+        height: 30px;
+      }
+
+      .tableau-signatures tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .pied-page {
+        margin-top: 20px;
+        padding-top: 8px;
+        border-top: 1px solid #ccc;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 11px;
+        color: #333;
+        line-height: 1.4;
+      }
+
+      .pied-page-slogan {
+        font-weight: bold;
+        color: green;
+        margin-bottom: 3px;
+      }
+
+      .pied-page-info {
+        font-size: 11px;
+        color: #333;
+      }
+
+      .pied-page-info span {
+        margin: 0 5px;
+      }
+
+      @media print {
+        body {
+          margin: 10mm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn-imprimer" onclick="window.print()">
+      Imprimer cette pétition
+    </button>
+
+    <!-- ENTÊTE -->
+    <div class="entete-courrier">
+      <div class="entete-gauche">
+        <img
+          src="../Photos ucs44/mieux-vivre-ensemble-mardi-11-mars-20141552mieuxvivre.jpg"
+          alt="Mieux vivre ensemble"
+        />
+      </div>
+      <div class="entete-centre">
+        <div class="texte-uc">Union Citoyenne Solidarité 44</div>
+        <div class="sous-texte-uc">
+          Association : 5 rue Lucie Aubrac 44800 St-Herblain
+        </div>
+      </div>
+      <div class="entete-droite">
+        <div class="colombe-wrapper">
+          <img
+            src="../colombe paix-saint esprit..gif"
+            alt="Colombe - paix - Saint-Esprit"
+          />
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="titre-petition">
+      Pétition des locataires<br />
+      5 et 3 rue Lucie Aubrac, Saint-Herblain
+    </div>
+
+    <div class="contenu-petition">
+      <p>
+        <strong
+          >Objet : Demande d'installation d'une barrière d'accès pour sécuriser
+          nos places de stationnement</strong
+        >
+      </p>
+
+      <p>
+        Nous, soussignés, locataires des résidences situées au 5 et 3 rue Lucie
+        Aubrac à Saint-Herblain, demandons à notre bailleur Habitat 44
+        d'installer une barrière d'accès avec système de badge pour mettre fin
+        aux abus quotidiens de stationnement dont nous sommes victimes depuis
+        2015.
+      </p>
+
+      <p><strong>Problèmes constatés :</strong></p>
+      <ul>
+        <li>
+          Occupation systématique de nos places par les résidents des immeubles
+          voisins et leurs visiteurs
+        </li>
+        <li>
+          Impossibilité d'accéder à nos emplacements que nous payons 10,10€ par
+          mois
+        </li>
+        <li>
+          Usage abusif de notre périmètre par les fidèles de la mosquée le
+          vendredi
+        </li>
+        <li>Inefficacité totale des panneaux d'interdiction installés</li>
+      </ul>
+
+      <p><strong>Nous demandons :</strong></p>
+      <ul>
+        <li>
+          L'installation d'une barrière d'accès équipée d'un système de badge
+          pour les résidents
+        </li>
+        <li>
+          À défaut, une solution concrète et viable pour résoudre définitivement
+          ce problème
+        </li>
+      </ul>
+
+      <p style="margin-top: 15px">
+        <strong
+          >Par cette pétition, nous affirmons notre soutien à cette demande
+          :</strong
+        >
+      </p>
+    </div>
+
+    <table class="tableau-signatures">
+      <thead>
+        <tr>
+          <th style="width: 25%">Nom</th>
+          <th style="width: 25%">Prénom</th>
+          <th style="width: 20%">N° Logement</th>
+          <th style="width: 30%">Signature</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pied-page">
+      <div class="pied-page-slogan">
+        Avec UCS44, ensemble pour aller plus loin et être plus fort
+      </div>
+      <div class="pied-page-info">
+        Association N° W442015645
+        <br />
+        <span>📧 mveucs44@gmail.com</span>
+        <span>|</span>
+        <span>📞 0661039125</span>
+        <br />
+        🌐 mveucs44.fr
+      </div>
+    </div>
+  </body>
+</html>
