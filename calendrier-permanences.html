@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendrier des permanences - MVEUCS44</title>
+    <style>
+      body { margin: 0; font-family: Arial, sans-serif; color: #17324d; background: #f5f7fa; }
+      .site-header { display: grid; grid-template-columns: 192px minmax(0, 1fr) 166px; align-items: center; gap: 24px; min-height: 260px; padding: 16px 30px 24px; background: #eef7f6; text-align: center; box-sizing: border-box; }
+      .header-logo img { width: 216px; height: 216px; object-fit: contain; }
+      .header-title h1 { margin: 0 0 8px; color: #17324d; font-size: clamp(1.45rem, 2.5vw, 2rem); }
+      .header-title p { margin: 0; font-size: 1.1rem; font-style: italic; }
+      .header-logo, .header-images { align-self: center; }
+      .header-title { display: flex; flex-direction: column; }
+      .header-title img { display: block; width: 100%; height: 90px; margin: 12px auto 0; object-fit: contain; }
+      .header-images img { width: 166px; height: 198px; object-fit: cover; border: 2px solid #111; }
+      .contact-bar { display: flex; justify-content: center; align-items: center; gap: 36px; padding: 9px 16px; background: #6b4f3a; color: white; font-size: 1.1rem; font-weight: bold; }
+      .contact-bar a { color: white; text-decoration: none; }
+      .association-nav { background: #55799b; padding: 20px 12px; }
+      .association-nav > ul { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; }
+      .association-nav a { display: block; color: #ffd21a; font-weight: 600; padding: 14px 22px; text-decoration: none; }
+      .dropdown { position: relative; }
+      .dropdown-menu { display: none; position: absolute; left: 0; top: 100%; min-width: 220px; z-index: 10; list-style: none; margin: 0; padding: 0; background: white; box-shadow: 0 6px 16px #0003; }
+      .dropdown-menu a { color: #145b7d; padding: 12px 16px; }
+      .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu { display: block; }
+      main { max-width: 1200px; margin: 40px auto; padding: 0 24px; }
+      article { background: white; padding: 32px; border-top: 5px solid #11779b; border-radius: 12px; box-shadow: 0 6px 18px #0002; }
+      h2 { color: #11779b; }
+      a { color: #11779b; font-weight: bold; }
+      .calendar { width: 100%; border-collapse: collapse; margin: 24px 0; }
+      .calendar th, .calendar td { border: 1px solid #cbd5e1; padding: 12px; text-align: left; vertical-align: top; }
+      .calendar th { background: #e8f3f6; color: #17324d; }
+      .calendar tr:nth-child(even) { background: #f8fafc; }
+      .calendar td[contenteditable="true"] { cursor: text; outline: 0; }
+      .calendar td[contenteditable="true"]:focus { background: #fffdf0; box-shadow: inset 0 0 0 2px #11779b; }
+      .calendar td[data-placeholder]:empty::before { content: attr(data-placeholder); color: #64748b; }
+      .edit-note { padding: 14px 16px; background: #fff8db; border-left: 4px solid #ffd21a; }
+      .calendar-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0 24px; }
+      .calendar-actions button { border: 0; border-radius: 6px; padding: 10px 14px; background: #11779b; color: white; font-weight: bold; cursor: pointer; }
+      .calendar-actions button.secondary { background: #64748b; }
+      @media (max-width: 600px) { .calendar { font-size: 0.9rem; } .calendar th, .calendar td { padding: 8px; } }
+      @media (max-width: 700px) { .site-header { grid-template-columns: 76px minmax(0, 1fr) 76px; gap: 8px; padding: 10px 8px; min-height: 0; } .header-logo img { width: 100px; height: 100px; } .header-images img { width: 76px; height: 92px; } .header-title h1 { font-size: 1rem; } .header-title p { font-size: 0.7rem; } .header-title img { height: 90px; margin-top: auto; } .association-nav { overflow-x: auto; } .association-nav > ul { justify-content: flex-start; } .association-nav a { padding: 12px 14px; white-space: nowrap; } .contact-bar { flex-wrap: wrap; gap: 8px 18px; font-size: 0.85rem; } }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-logo"><img src="logo-mveucs44-final.png" alt="Logo Mieux Vivre Ensemble - Union Citoyenne Solidarit&eacute; 44" /></div>
+      <div class="header-title"><h1>Mieux Vivre Ensemble - Union Citoyenne Solidarit&eacute; 44</h1><p>Agir ensemble pour la solidarite et la citoyennete en Loire-Atlantique</p><img src="photos du header/solidarite.jpg" alt="Groupe de personnes repr&eacute;sentant la solidarit&eacute;" /></div>
+      <div class="header-images"><img src="photos du header/Capture-fi11277515x190.jpg" alt="Photo representative"></div>
+    </header>
+    <div class="contact-bar">
+      <span>&mdash; Ensemble pour aller plus loin et &ecirc;tre plus fort</span>
+      <span>Contactez-nous : <a href="mailto:mveucs44@gmail.com">mveucs44@gmail.com</a> &mdash; &#128222; 06.61.03.91.25</span>
+    </div>
+    <nav class="association-nav" aria-label="Navigation de l'association"><ul><li><a href="index.html">Accueil</a></li><li class="dropdown"><a href="index.html#association">L'association MVEUCS.44</a><ul class="dropdown-menu"><li><a href="presentation.html">Pr&eacute;sentation</a></li><li><a href="valeurs.html">Nos valeurs</a></li><li><a href="actions.html">Nos actions</a></li></ul></li><li class="dropdown"><a href="action-logement.html">Dossiers administratifs</a><ul class="dropdown-menu"><li><a href="action-logement.html">Pr&eacute;sentation</a></li><li><a href="action-logement.html#informations">Informations</a></li></ul></li><li class="dropdown"><a href="actualites.html">Actualit&eacute;s</a><ul class="dropdown-menu"><li><a href="actualites.html">Toutes les Actualit&eacute;s</a></li><li><a href="infos-semaine.html">Infos semaine</a></li></ul></li><li class="dropdown"><a href="permanence-mveucs44.html">Permanence MVEUCS44</a><ul class="dropdown-menu"><li><a href="permanence-mveucs44.html">Pr&eacute;sentation</a></li><li><a href="calendrier-permanences.html">Calendrier de nos permanances</a></li></ul></li></ul></nav>
+    <main>
+      <article>
+        <h2>Calendrier de nos permanences</h2>
+        <p>Retrouvez ici les dates, horaires et lieux de nos prochaines permanences.</p>
+        <p class="edit-note"><strong>Vous pouvez &eacute;crire directement dans le tableau :</strong> cliquez dans une case et saisissez vos informations. Les modifications sont sauvegard&eacute;es automatiquement sur cet appareil.</p>
+
+        <table class="calendar" id="permanences-table">
+          <thead>
+            <tr>
+              <th>Mois</th>
+              <th>Date</th>
+              <th>Horaires</th>
+              <th>Lieu</th>
+              <th>Informations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td contenteditable="true" data-placeholder="Mois">Novembre 2026</td>
+              <td contenteditable="true" data-placeholder="Date">Mercredi 04<br />Samedi 07<br />Jeudi 12<br />Samedi 14<br />Mercredi 17<br />Samedi 21<br />Mercredi 25<br />Samedi 28</td>
+              <td contenteditable="true" data-placeholder="Horaires">14h/17h30<br />14h/17h30<br />14h/17h30<br />14h/17h30<br />14h/17h30<br />14h/17h30<br />14h/17h30<br />14h/17h30</td>
+              <td contenteditable="true" data-placeholder="Lieu">5 rue Lucie Aubrac<br />Saint-Herblain</td>
+              <td contenteditable="true" data-placeholder="Informations">Prendre rendez-vous avant</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="calendar-actions">
+          <button type="button" id="add-row">Ajouter une permanence</button>
+          <button type="button" id="clear-calendar" class="secondary">Effacer le calendrier</button>
+        </div>
+        <p><a href="permanence-mveucs44.html">&larr; Retour &agrave; la Pr&eacute;sentation</a></p>
+      </article>
+    </main>
+    <script src="site-header.js"></script>
+    <script>
+      const table = document.getElementById('permanences-table');
+      const storageKey = 'mveucs44-permanences';
+      const columns = ['Mois', 'Date', 'Horaires', 'Lieu', 'Informations'];
+
+      function saveCalendar() {
+        localStorage.setItem(storageKey, table.tBodies[0].innerHTML);
+      }
+
+      function makeEditable(cell, placeholder) {
+        cell.contentEditable = 'true';
+        cell.dataset.placeholder = placeholder;
+        cell.addEventListener('input', saveCalendar);
+      }
+
+      function addRow(values = ['', '', '', '', '']) {
+        const row = table.tBodies[0].insertRow();
+        columns.forEach((placeholder, index) => {
+          const cell = row.insertCell();
+          cell.textContent = values[index] || '';
+          makeEditable(cell, placeholder);
+        });
+        saveCalendar();
+      }
+
+      table.tBodies[0].querySelectorAll('td').forEach((cell, index) => {
+        makeEditable(cell, columns[index % columns.length]);
+      });
+
+      const savedCalendar = localStorage.getItem(storageKey);
+      if (savedCalendar) {
+        table.tBodies[0].innerHTML = savedCalendar;
+        table.tBodies[0].querySelectorAll('tr').forEach((row) => {
+          if (row.cells.length === 4) {
+            const monthCell = row.insertCell(0);
+            monthCell.textContent = '';
+          }
+          Array.from(row.cells).forEach((cell, index) => {
+            makeEditable(cell, columns[index]);
+          });
+        });
+      }
+
+      document.getElementById('add-row').addEventListener('click', () => addRow());
+      document.getElementById('clear-calendar').addEventListener('click', () => {
+        if (confirm('Effacer toutes les permanences enregistr&eacute;es sur cet appareil ?')) {
+          localStorage.removeItem(storageKey);
+          table.tBodies[0].innerHTML = '';
+          addRow();
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flyers - Mieux Vivre Ensemble</title>
+    <style>
+      :root { --navy: #17324d; --blue: #11779b; --orange: #fe9063; }
+      body { margin: 0; font-family: Arial, sans-serif; color: var(--navy); background: #f5f7fa; }
+      header { padding: 24px 20px; background: #eef7f6; text-align: center; }
+      header h1 { margin: 0; color: var(--navy); font-size: clamp(1.7rem, 3vw, 2.5rem); }
+      header p { margin: 8px 0 0; color: #2b6875; font-style: italic; }
+      .contact-bar { display: flex; justify-content: center; align-items: center; gap: 36px; padding: 9px 16px; background: #6b4f3a; color: white; font-size: 1.05rem; font-weight: bold; }
+      .contact-bar a { color: white; text-decoration: none; }
+      main { max-width: 1180px; margin: 32px auto; padding: 0 20px 40px; text-align: center; }
+      .intro { margin-bottom: 18px; }
+      .print-button { border: 0; border-radius: 999px; padding: 13px 24px; background: var(--blue); color: white; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 3px 0 #0b566f; }
+      .print-button:hover, .print-button:focus { background: #0b6b88; }
+      .viewer { width: 100%; height: min(70vw, 760px); min-height: 480px; margin-top: 24px; border: 0; background: white; box-shadow: 0 6px 22px #17324d2b; }
+      @media (max-width: 700px) { .contact-bar { flex-wrap: wrap; gap: 8px 18px; font-size: .85rem; } .viewer { height: 560px; min-height: 0; } }
+      @media print { body > *:not(main), main > *:not(.viewer) { display: none !important; } .viewer { height: 210mm; width: 297mm; margin: 0; box-shadow: none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Flyers de l'association</h1>
+      <p>Mieux Vivre Ensemble — Union Citoyenne Solidarité 44</p>
+    </header>
+    <div class="contact-bar">
+      <span>Ensemble pour aller plus loin et être plus fort</span>
+      <span>Contactez-nous : <a href="mailto:mveucs44@gmail.com">mveucs44@gmail.com</a> — ☎ 06 61 03 91 25</span>
+    </div>
+    <div class="site-section-label"></div>
+    <main>
+      <p class="intro">Consultez le dépliant 3 volets et imprimez ses deux faces pour le partager autour de vous.</p>
+      <button class="print-button" type="button" onclick="document.querySelector('.viewer').contentWindow.print()">🖨 Imprimer le dépliant recto verso</button>
+      <iframe class="viewer" title="Dépliant MVEUCS44 à trois volets, recto verso, format A4 paysage" src="flyer-mveucs44-a4-paysage.html"></iframe>
+    </main>
+    <script src="site-header.js"></script>
+  </body>
+</html>

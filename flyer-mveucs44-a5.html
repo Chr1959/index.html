@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Flyer MVEUCS44 — 148 × 210 mm</title>
+  <style>
+    @page { size:148mm 210mm; margin:0; }
+    :root { --navy:#17324d; --blue:#11779b; --teal:#4b9c91; --green:#75a94b; --orange:#f58a45; --cream:#fffaf1; }
+    * { box-sizing:border-box; } html,body { margin:0; width:148mm; height:210mm; }
+    body { background:#fff; color:var(--navy); font-family:"Trebuchet MS",Arial,sans-serif; }
+    .flyer { position:relative; width:148mm; height:210mm; overflow:hidden; background:var(--cream); }
+    .flyer::before { content:""; position:absolute; inset:0 auto 0 0; width:5mm; background:linear-gradient(var(--orange) 0 29%,var(--teal) 29% 63%,var(--green) 63%); }
+    .top { height:53mm; padding:3mm 8mm 3mm 11mm; background:#eef7f6; text-align:center; overflow:hidden; }
+    .logo { width:24mm; height:24mm; object-fit:contain; }
+    .brand h1 { margin:0; font-size:15pt; line-height:1.02; }
+    .brand h1 span { display:block; margin-top:1mm; color:var(--blue); font-size:8.5pt; }
+    .brand p { margin:1.5mm 0 0; color:#2b6875; font-size:7pt; font-weight:bold; font-style:italic; }
+    .photo { display:block; width:100%; height:14mm; object-fit:cover; margin-top:1.5mm; border-radius:2mm; border:1px solid white; }
+    .hero { height:55mm; padding:4mm 8mm 3mm 11mm; overflow:hidden; }
+    .hero h2 { margin:0; color:var(--blue); font-size:18pt; line-height:1.02; }
+    .hero h2 em { color:var(--orange); font-style:normal; }
+    .intro { margin:2mm 0 0; font-size:7.6pt; line-height:1.25; }
+    .badge { margin-top:2.5mm; padding:2.5mm; border-radius:3mm; background:var(--navy); color:white; text-align:center; box-shadow:0 2px 0 var(--orange); }
+    .badge strong { display:block; color:#ffd21a; font-size:10pt; }
+    .badge span { display:block; max-width:100%; margin-top:1mm; font-size:7pt; line-height:1.2; }
+    .columns { display:grid; grid-template-columns:1fr 1fr; gap:2.5mm; padding:3mm 8mm 3mm 11mm; }
+    .card { min-height:29mm; padding:2.5mm 3mm 2mm; background:white; border-radius:2mm; border-top:3px solid var(--teal); box-shadow:0 2px 7px #17324d12; }
+    .card:nth-child(2) { border-top-color:var(--orange); }
+    .card:nth-child(3) { grid-column:1 / -1; min-height:22mm; border-top-color:var(--green); }
+    .card h3 { margin:0 0 1mm; color:var(--blue); font-size:9.5pt; }
+    .card:nth-child(2) h3 { color:#c75c2a; } .card:nth-child(3) h3 { color:#528b3c; }
+    .card ul { margin:0; padding-left:3.5mm; font-size:6.2pt; line-height:1.15; }
+    .card:nth-child(3) ul { display:grid; grid-template-columns:1fr 1fr; column-gap:3mm; }
+    .card li + li { margin-top:.5mm; }
+    .cta { position:absolute; left:11mm; right:8mm; bottom:7mm; height:19mm; padding:2mm 3mm; color:white; background:linear-gradient(100deg,var(--blue),#2a738c); border-radius:3mm; text-align:center; }
+    .cta h3 { margin:0 0 .8mm; font-size:9.5pt; } .cta p { margin:0; font-size:6.5pt; }
+    .contact { margin-top:1mm; font-size:7.5pt; font-weight:bold; line-height:1.25; } .contact a { color:white; text-decoration:none; }
+    .small { position:absolute; right:8mm; bottom:1mm; color:#66808b; font-size:4.5pt; }
+    @media print { body { background:white; } }
+  </style>
+</head>
+<body>
+  <main class="flyer" aria-label="Flyer A5 portrait de l'association Mieux Vivre Ensemble">
+    <header class="top"><img class="logo" src="logo-mveucs44-final.png" alt="Logo Mieux Vivre Ensemble"><div class="brand"><h1>Mieux Vivre Ensemble <span>Union Citoyenne Solidarité 44</span></h1><p>Agir ensemble pour la solidarité et la citoyenneté en Loire-Atlantique</p></div><img class="photo" src="photos du header/solidarite.jpg" alt="Groupe de personnes réunies"></header>
+    <section class="hero"><h2>Ensemble, faisons vivre<br><em>la solidarité.</em></h2><p class="intro">Notre association rassemble les citoyens et les acteurs locaux pour informer, accompagner et soutenir les habitants dans leurs démarches et leurs projets collectifs.</p><div class="badge"><strong>Vous avez une question ?</strong><span>Besoin d'information, d'accompagnement ou envie d'agir près de chez vous ?</span></div></section>
+    <section class="columns"><article class="card"><h3>Nos actions</h3><ul><li>Informer sur les démarches du quotidien</li><li>Accompagner les familles et les locataires</li><li>Développer des initiatives locales</li><li>Encourager la participation citoyenne</li></ul></article><article class="card"><h3>Nos valeurs</h3><ul><li><strong>Solidarité</strong> et entraide</li><li><strong>Citoyenneté</strong> et engagement</li><li><strong>Inclusion</strong> et respect</li><li><strong>Transparence</strong></li></ul></article><article class="card"><h3>À votre écoute</h3><ul><li>Permanences et informations</li><li>Dossiers administratifs</li><li>Logement et vie quotidienne</li><li>Projets collectifs locaux</li></ul></article></section>
+    <section class="cta"><h3>Rejoignez-nous — votre voix compte !</h3><p>Ensemble pour aller plus loin et être plus forts.</p><div class="contact"><a href="mailto:mveucs44@gmail.com">✉ mveucs44@gmail.com</a> · ☎ 06 61 03 91 25</div></section><div class="small">Association loi 1901 inscrite en Préfecture et au Journal officiel</div>
+  </main>
+</body>
+</html>
