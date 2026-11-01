@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Union Citoyenne Solidarité 44</title>
+    <title>Mieux Vivre Ensemble - Union Citoyenne Solidarit&eacute; 44</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap"
       rel="stylesheet"
@@ -17,17 +17,64 @@
       }
 
       header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #587189;
+        padding: 10px 24px;
+        text-align: center;
+        background-color: #eef7f6;
         color: white;
-        padding: 20px;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: 150px minmax(0, 1fr) 130px;
+        align-items: center;
+        justify-items: center;
+        gap: 24px;
+      }
+
+      .header-logo {
+        grid-column: 1;
+      }
+
+      .header-logo img,
+      .header-images img {
+        width: 130px;
+        height: auto;
+      }
+
+      .header-logo img {
+        width: 150px;
+        padding: 5px;
+        background: transparent;
+        border-radius: 6px;
+        box-sizing: border-box;
+      }
+
+      .header-images {
+        grid-column: 3;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+      }
+
+      .header-images img:not(:first-child) {
+        display: none;
       }
 
       header h1 {
-        margin: 0;
-        font-size: 2.5em;
+        margin: 0 0 5px;
+        font-size: 1.4em;
+        white-space: normal;
+      }
+
+      .header-title {
+        grid-column: 2;
+      }
+
+      .header-title::after {
+        content: "Association loi 1901 inscrite en Prefecture et au journal officiel";
+        display: block;
+        margin-top: 4px;
+        font-size: 0.9em;
       }
 
       header p {
@@ -35,27 +82,108 @@
         margin: 5px 0 0;
       }
 
+      @media (max-width: 900px) {
+        header { grid-template-columns: 90px minmax(0, 1fr) 90px; gap: 12px; }
+        .header-logo img,
+        .header-images img { width: 78px; }
+      }
+
+      @media (max-width: 600px) {
+        header { grid-template-columns: 72px minmax(0, 1fr) 72px; padding: 16px 8px; gap: 6px; }
+        header h1 { font-size: 1em; }
+        .header-logo img,
+        .header-images img { width: 72px; height: 100px; }
+      }
+
       nav {
+        display: none;
         background: #4f6f8f;
       }
 
-      nav ul {
+      .association-nav {
+        display: block;
+        background: #4f6f8f;
+      }
+
+      .association-nav > ul {
         display: flex;
         justify-content: center;
         list-style: none;
         margin: 0;
-        padding: 10px 0;
+        padding: 0;
+      }
+
+      .association-nav a {
+        display: block;
+        color: white;
+        font-weight: 600;
+        padding: 14px 22px;
+        text-decoration: none;
+      }
+
+      .association-nav .dropdown {
+        position: relative;
+      }
+
+      .association-nav .dropdown-menu {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        min-width: 240px;
+        z-index: 10;
+        background: transparent;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .association-nav .dropdown-menu a {
+        color: #145b7d;
+        padding: 12px 16px;
+      }
+
+      .association-nav .dropdown-menu a:hover,
+      .association-nav > ul > li > a:hover {
+        background: #dbeafe;
+      }
+
+      .association-nav .dropdown:hover .dropdown-menu,
+      .association-nav .dropdown:focus-within .dropdown-menu {
+        display: block;
+      }
+
+      @media (max-width: 600px) {
+        .association-nav > ul {
+          justify-content: flex-start;
+        }
+
+        .association-nav a {
+          padding: 12px 14px;
+        }
+      }
+
+      nav > ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px 24px;
+        list-style: none;
+        margin: 0;
+        padding: 10px;
       }
 
       nav ul li {
-        margin: 0 15px;
+        position: relative;
       }
 
       nav ul li a {
+        display: block;
+        padding: 4px 8px;
         color: white;
         text-decoration: none;
         font-weight: bold;
-        font-size: 0.95rem;
       }
 
       .dropdown {
@@ -65,6 +193,8 @@
       .dropdown-menu {
         display: none;
         position: absolute;
+        top: 100%;
+        left: 0;
         background-color: #dfeefb;
         list-style: none;
         padding: 5px 0;
@@ -75,7 +205,6 @@
 
       .dropdown-menu li {
         display: block;
-        margin: 0;
       }
 
       .dropdown-menu li a {
@@ -96,6 +225,22 @@
         text-decoration: underline;
       }
 
+      .nav-locataire {
+        color: #ffd166 !important;
+      }
+
+      /* Une couleur diffÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©rente pour chaque rubrique principale */
+      nav > ul > li:nth-child(1) > a { color: #f1c40f; }
+      nav > ul > li:nth-child(2) > a { color: #ffd166; }
+      nav > ul > li:nth-child(3) > a { color: #7bdff2; }
+      nav > ul > li:nth-child(4) > a { color: #b8f2e6; }
+      nav > ul > li:nth-child(5) > a { color: #ff9f1c; }
+      nav > ul > li:nth-child(6) > a { color: #f7aef8; }
+      nav > ul > li:nth-child(7) > a { color: #caffbf; }
+      nav > ul > li:nth-child(8) > a { color: #a0c4ff; }
+      nav > ul > li:nth-child(9) > a { color: #ffadad; }
+      nav > ul > li:nth-child(10) > a { color: #e2e2e2; }
+
       .theme-section {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -107,6 +252,7 @@
 
       .theme-card {
         background: white;
+        color: #263746;
         padding: 24px;
         border-radius: 12px;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -116,6 +262,12 @@
       .theme-card h2 {
         margin-top: 0;
         font-size: 1.45em;
+        color: #263746;
+      }
+
+      .theme-card p,
+      .theme-card li {
+        color: #263746;
       }
 
       .theme-card h3 {
@@ -152,6 +304,21 @@
       .theme-values ul {
         padding-left: 22px;
         margin-bottom: 0;
+      }
+
+      .candidate-preview {
+        display: block;
+        width: min(100%, 190px);
+        height: auto;
+        margin: 18px auto 0;
+        border-radius: 6px;
+      }
+
+      .locataires-habitat-label {
+        margin: 12px 0 0;
+        color: #0b6b8f;
+        font-size: 1.05em;
+        font-weight: bold;
       }
 
       .theme-values li {
@@ -221,11 +388,177 @@
       .welcome-banner h2 {
         font-size: 2em;
         margin: 0 0 10px 0;
+        color: #60a5fa;
+      }
+
+      .welcome-video {
+        width: min(100%, 720px);
+        aspect-ratio: 16 / 9;
+        margin: 18px auto 8px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #172b3a;
+      }
+
+      .welcome-video iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .welcome-video:has(iframe[src*="7YZ4StKHW-Q"]) {
+        display: none;
+      }
+
+      .welcome-video:has(iframe[src*="LbHPVKACT6w"]) {
+        display: none;
+      }
+
+      .thumbnail-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 14px;
+        max-width: 760px;
+        margin: 22px auto 8px;
+      }
+
+      .thumbnail-gallery button {
+        padding: 0;
+        border: 3px solid rgba(255, 255, 255, 0.35);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #172b3a;
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .thumbnail-gallery button:hover,
+      .thumbnail-gallery button:focus-visible {
+        transform: translateY(-3px);
+        border-color: #60a5fa;
+        outline: none;
+      }
+
+      .thumbnail-gallery img {
+        display: block;
+        width: 100%;
+        height: 130px;
+        object-fit: cover;
+      }
+
+      .thumbnail-gallery button:nth-child(6) {
+        display: none;
+      }
+
+      .thumbnail-gallery button[data-full-image*="Capture"] {
+        display: none;
+      }
+
+      .thumbnail-gallery button[data-full-image*="colombe"] {
+        display: none;
+      }
+
+      .thumbnail-gallery button[data-full-image*="daille"] {
+        display: none;
+      }
+
+      .thumbnail-gallery .video-thumbnail {
+        position: relative;
+      }
+
+      .thumbnail-gallery .video-thumbnail::after {
+        content: "▶";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: rgba(220, 38, 38, 0.9);
+        color: white;
+        font-size: 1.3rem;
+      }
+
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(0, 0, 0, 0.82);
+      }
+
+      .lightbox.is-open {
+        display: flex;
+      }
+
+      .lightbox img {
+        max-width: min(100%, 1000px);
+        max-height: 88vh;
+        border-radius: 8px;
+        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.45);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 14px;
+        right: 22px;
+        border: 0;
+        background: transparent;
+        color: white;
+        font-size: 2.4rem;
+        line-height: 1;
+        cursor: pointer;
       }
 
       .welcome-banner p {
         font-size: 1.1em;
         margin: 0;
+        color: #f97316;
+      }
+
+      .welcome-banner a {
+        display: inline-block;
+        margin-top: 14px;
+        color: #7CFC00;
+        font-size: 1.25em;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      .welcome-banner > a[href*="lacsf44.org"],
+      .welcome-banner > a[href*="facebook.com"] {
+        font-size: 0;
+      }
+
+      .welcome-banner > a[href*="lacsf44.org"]::after {
+        content: "Visiter le site de la CSF 44";
+        font-size: 1.25rem;
+      }
+
+      .welcome-banner > a[href*="facebook.com"]::after {
+        content: "Voir la vidéo sur Facebook";
+        font-size: 1.25rem;
+      }
+
+      .welcome-banner > p {
+        font-size: 0;
+      }
+
+      .welcome-banner > p::after {
+        content: "Découvrez nos initiatives pour une société plus solidaire";
+        font-size: 1.1rem;
+      }
+
+      .welcome-banner > a[href*="JqdkyQeUf-U"],
+      .welcome-banner > a[href*="lacsf44.org"],
+      .welcome-banner > a[href*="facebook.com"] {
+        display: none;
       }
 
       .initiative-grid {
@@ -291,7 +624,7 @@
         background-color: #25d366;
       }
 
-      /* Bloc d'actualité */
+      /* Bloc d'actualitÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© */
       .news-block {
         background: #fff;
         border-radius: 8px;
@@ -328,8 +661,8 @@
 
       /* Barre de contact en haut du site */
       .topbar {
-        background: #f39c12;
-        color: #0b2d4a;
+        background: #6b4f3a;
+        color: #ffffff;
         font-weight: bold;
         font-size: 0.95em;
       }
@@ -344,10 +677,56 @@
       .topbar .contact-info span {
         margin-right: 12px;
       }
+      .topbar-logo {
+        width: 58px;
+        height: 58px;
+        vertical-align: middle;
+        object-fit: contain;
+        margin: -4px 10px -4px 0;
+        padding: 3px;
+        background: transparent;
+        border-radius: 5px;
+      }
       @media (max-width: 600px) {
         .topbar .contact-info {
           display: none;
         }
+      }
+      /* Header commun aux pages de l'association */
+      .topbar { display: none; }
+      header { display: grid; grid-template-columns: 192px minmax(0, 1fr) 166px; align-items: center; gap: 24px; min-height: 260px; padding: 16px 30px 24px; background: #eef7f6; color: #17324d; text-align: center; box-sizing: border-box; }
+      .header-logo { grid-column: 1; }
+      .header-logo img { width: 216px; height: 216px; object-fit: contain; background: transparent; border-radius: 0; padding: 0; box-sizing: border-box; }
+      .header-title { grid-column: 2; display: flex; flex-direction: column; }
+      .header-title h1 { margin: 0 0 8px; color: #17324d; font-size: clamp(1.45rem, 2.5vw, 2rem); }
+      .header-title p { margin: 0; color: #17324d; font-size: 1.1rem; font-style: italic; }
+      .header-title::after { content: "Association loi 1901 inscrite en Prefecture et au journal officiel"; display: block; order: 2; margin-top: 8px; color: #17324d; font-size: 1.1rem; font-style: normal; }
+      .header-title img { display: block; order: 3; width: 100%; height: 90px; margin: 12px auto 0; object-fit: contain; }
+      .header-logo, .header-images { align-self: center; }
+      .header-images { grid-column: 3; display: flex; justify-content: center; }
+      .header-images img { width: 166px; height: 198px; object-fit: cover; border: 2px solid #111; box-sizing: border-box; }
+      .contact-bar { display: flex; justify-content: center; align-items: center; gap: 36px; padding: 9px 16px; background: #6b4f3a; color: white; font-size: 1.1rem; font-weight: bold; }
+      .contact-bar a { color: white; text-decoration: none; }
+      .association-nav { background: #FE9063; padding: 20px 12px; }
+      .association-nav > ul { padding: 0; }
+      .association-nav > ul > li > a { padding: 0; color: #ffd21a; font-size: 1.25rem; }
+      .association-nav > ul > li > a { background: #FE9063; }
+      .association-nav > ul > li > a:hover,
+      .association-nav > ul > li:focus-within > a,
+      .association-nav > ul > li:nth-child(4) > a:hover { background: #11779b !important; color: white !important; border-radius: 6px; }
+      .association-nav .dropdown-menu { background: white; }
+      .association-nav .dropdown-menu a:hover,
+      .association-nav .dropdown-menu a:focus { background: #dbeafe; color: #17324d; }
+      @media (max-width: 700px) {
+        header { grid-template-columns: 76px minmax(0, 1fr) 76px; gap: 8px; min-height: 0; padding: 10px 8px; }
+        .header-logo img { width: 100px; height: 100px; }
+        .header-images img { width: 76px; height: 92px; }
+        .header-title img { height: 90px; }
+        .header-title h1 { font-size: 1rem; }
+        .header-title p, .header-title::after { font-size: 0.7rem; }
+        .contact-bar { flex-wrap: wrap; gap: 8px 18px; padding: 9px 8px; font-size: 0.85rem; }
+        .association-nav { padding: 12px 8px; }
+        .association-nav > ul > li > a { font-size: 1rem; }
       }
     </style>
   </head>
@@ -356,7 +735,11 @@
       <div class="topbar-inner">
         <div class="contact-info">
           <span
-            ><strong>mveucs44</strong> — ensemble pour aller plus loin et être
+            ><img
+              class="topbar-logo"
+              src="logo-mveucs44-final.png"
+              alt="Logo Mieux Vivre Ensemble - Union Citoyenne Solidarit&eacute; 44"
+            /> ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Ensemble pour aller plus loin et ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âªtre
             plus fort</span
           >
           <span style="margin-left: 12px"
@@ -366,38 +749,106 @@
               style="color: inherit; text-decoration: none"
               >mveucs44@gmail.com</a
             >
-            — 📞 06.61.03.91.25</span
+            ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒâ€¦Ã‚Â¾ 06.61.03.91.25</span
           >
         </div>
+      </div>
     </div>
     <header>
-      <!-- Logo à gauche -->
+      <div class="header-logo">
+      <!-- Logo ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â  gauche -->
       <img
-        src="Photos ucs44/mieux-vivre-ensemble-mardi-11-mars-20141552mieuxvivre.jpg"
-        alt="Logo Mieux Vivre Ensemble"
-        style="width: 100px; height: auto"
+        src="logo-mveucs44-final.png"
+        alt="Logo Mieux Vivre Ensemble - Union Citoyenne Solidarit&eacute; 44"
       />
-      <!-- Titre centré -->
-      <div style="text-align: center; flex-grow: 1">
-        <h1>Union Citoyenne Solidarité 44</h1>
-        <p>
-          Agir ensemble pour la solidarité et la citoyenneté en Loire-Atlantique
-        </p>
+      <!-- Titre centrÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© -->
       </div>
-      <!-- Photo à droite -->
+      <div class="header-title">
+        <h1>Mieux Vivre Ensemble - Union Citoyenne Solidarit&eacute; 44</h1>
+        <p>
+          Agir ensemble pour la Solidarit&eacute; et la Citoyennet&eacute;n Loire-Atlantique
+        </p>
+        <img src="photos du header/solidarite.jpg" alt="Groupe de personnes repr&eacute;sentant la solidarit&eacute;" />
+      </div>
+      <!-- Photo ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â  droite -->
+      <div class="header-images" aria-label="Images representatives">
       <img
-        src="Photos ucs44/Capture-fi11277515x190.jpg"
-        alt="Photo représentative"
-        style="width: 100px; height: auto"
+        src="photos du header/Capture-fi11277515x190.jpg"
+        alt="Photo representative">
+      <img
+        src="Photos ucs44/colombe paix-saint esprit..gif"
+        alt="Colombe de la paix"
       />
+      <img
+        src="Photos ucs44/mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©daille.jpg"
+        alt="MÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©daille"
+      />
+      </div>
     </header>
+    <div class="contact-bar">
+      <span>&mdash; Ensemble pour aller plus loin et &ecirc;tre plus fort</span>
+      <span>Contactez-nous : <a href="mailto:mveucs44@gmail.com">mveucs44@gmail.com</a> &mdash; &#128222; 06.61.03.91.25</span>
+    </div>
+    <nav class="association-nav" aria-label="Navigation de l'association">
+      <ul>
+        <li class="dropdown">
+          <a href="#association" aria-haspopup="true">L'association MVEUCS.44</a>
+          <ul class="dropdown-menu">
+            <li><a href="presentation.html">Pr&eacute;sentation</a></li>
+            <li><a href="valeurs.html">Nos valeurs</a></li>
+            <li><a href="actions.html">Nos actions</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="action-logement.html" aria-haspopup="true">Action Logement</a>
+          <ul class="dropdown-menu">
+            <li><a href="action-logement.html">Pr&eacute;sentation</a></li>
+            <li><a href="action-logement.html#informations">Informations</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="actualites.html" aria-haspopup="true">Actualit&eacute;s</a>
+          <ul class="dropdown-menu">
+            <li><a href="actualites.html">Toutes les Actualit&eacute;s</a></li>
+            <li><a href="infos-semaine.html">Infos semaine</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="permanence-mveucs44.html" aria-haspopup="true">Permanence MVEUCS44</a>
+          <ul class="dropdown-menu">
+            <li><a href="permanence-mveucs44.html">Pr&eacute;sentation</a></li>
+            <li><a href="permanence-mveucs44.html#informations">Informations pratiques</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- Contenu de la page supprimÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â  la demande. -->
+    <!--
     <nav>
       <ul>
         <li class="dropdown">
           <a href="index.html">Accueil</a>
           <ul class="dropdown-menu">
             <li><a href="index.html">Accueil</a></li>
+            <li><a href="Photos%20Habitat%2044/Courrier%20elections%20R%20des%20Locataires.pdf" target="_blank" rel="noopener noreferrer">Courrier ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©lections R des Locataires</a></li>
             <li><a href="allo-habitat44.html">Allo Habitat44</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a class="nav-locataire" href="locataires-habitat-44.html">Je suis locataire</a>
+          <ul class="dropdown-menu">
+            <li><a href="https://www.youtube.com/shorts/vsAQPKO7Qlg?feature=share" target="_blank" rel="noopener noreferrer">Location : les 3 erreurs ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â  ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©viter lors de l'ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©tat des lieux</a></li>
+            <li><a href="https://www.facebook.com/consomag.TV/videos/locataire-hlm-comment-agir-sur-les-d%C3%A9cisions-de-mon-immeuble-consomag-hlm-droit-/1181440570557290/" target="_blank" rel="noopener noreferrer">VidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o Consomag - Locataire HLM</a></li>
+            <li><a href="https://youtu.be/akVVQT0M3iU?list=PLGYbQTEz9aMGb1dY1erura38ZJxzVZwD6&amp;t=19" target="_blank" rel="noopener noreferrer">VidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o : RÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©forme dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢octobre 2026</a></li>
+            <li><a href="https://www.youtube.com/watch?v=l68f95Sm49E&amp;list=PLGYbQTEz9aMGb1dY1erura38ZJxzVZwD6&amp;index=2&amp;pp=iAQB" target="_blank" rel="noopener noreferrer">VidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o YouTube - Locataire</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="articles.html">Articles</a>
+          <ul class="dropdown-menu">
+            <li><a href="articles.html">Tous les articles</a></li>
+            <li><a href="grille-vetuste-location.html">Grille de vÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©tustÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© location</a></li>
           </ul>
         </li>
 
@@ -413,81 +864,149 @@
           <a href="locataires-habitat-44.html">Habitat44</a>
           <ul class="dropdown-menu">
             <li class="dropdown">
-              <a href="elections-representants-locataires-2026.html">Élections HLM 2026</a>
-              <ul class="dropdown-menu">
-                <li><a href="habitat44/infos-elections.html">Infos Elections</a></li>
-              </ul>
+              <a href="elections-representants-locataires-2026.html">ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°lections HLM 2026</a>
+            </li>
+            <li>
+              <a href="vos-candidats-habitat44.html">
+                <img src="Photos Habitat 44/VOS CANDIDATS H44.png" alt="Vos candidats Habitat44" style="display: block; width: 180px; height: auto" />
+              </a>
             </li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="reunions.html">Réunions</a>
+          <a href="reunions.html">RÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©unions</a>
           <ul class="dropdown-menu">
-            <li><a href="reunions.html">Toutes les réunions</a></li>
+            <li><a href="reunions.html">Toutes les rÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©unions</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="evenements.html">Événements</a>
+          <a href="evenements.html">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°vÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©nements</a>
           <ul class="dropdown-menu">
-            <li><a href="evenements.html">Tous les événements</a></li>
+            <li><a href="evenements.html">Tous les ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©vÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©nements</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="service-public.html">Service Public</a>
+          <ul class="dropdown-menu">
+            <li><a href="service-public.html">AccÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©der aux services publics</a></li>
+            <li><a href="service-public.html#d&eacute;marches">d&eacute;marches administratives</a></li>
+            <li><a href="service-public.html#logement">Logement et habitat</a></li>
+            <li><a href="service-public.html#charges-locatives">Charges locatives (6 pages)</a></li>
+            <li><a href="service-public.html#droits">Droits et accompagnement</a></li>
           </ul>
         </li>
         <li><a href="nous-rejoindre.html">Nous Rejoindre</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    -->
     <div class="welcome-banner">
       <h2>Bienvenue sur notre site</h2>
-      <p>Découvrez nos initiatives pour une société plus solidaire</p>
+      <a href="flyers-double.html" class="flyers-home-link">📄 Voir et enregistrer les flyers</a>
+      <div class="welcome-video">
+        <iframe src="https://www.youtube.com/embed/JqdkyQeUf-U?start=162" title="Demain - Nelson LAUDES" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="welcome-video">
+        <iframe src="https://www.youtube.com/embed/d70-Poi1PJk?start=78" title="Un cadeau rempli d'humanité - Nelson LAUDES" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <a href="https://youtu.be/JqdkyQeUf-U?list=RDJqdkyQeUf-U&amp;t=162" target="_blank" rel="noopener noreferrer">▶ Voir la vidéo « Demain » sur YouTube</a>
+      <div class="welcome-video">
+        <iframe src="https://www.youtube.com/embed/LbHPVKACT6w" title="Sois fier de toi ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“ Chanson ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©motionnelle" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="welcome-video">
+        <iframe src="https://www.youtube.com/embed/7YZ4StKHW-Q" title="VidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o ajoutÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©e" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="thumbnail-gallery" aria-label="Galerie de photos">
+        <button class="video-thumbnail" type="button" data-video-url="https://youtu.be/JqdkyQeUf-U?list=RDJqdkyQeUf-U" aria-label="Ouvrir la sixiÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨me vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o">
+          <img src="https://img.youtube.com/vi/JqdkyQeUf-U/hqdefault.jpg" alt="Miniature de la sixiÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨me vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o" loading="lazy" />
+        </button>
+        <button class="video-thumbnail" type="button" data-video-url="https://youtu.be/SdRKQPOQ6ak?list=RDSdRKQPOQ6ak" aria-label="Ouvrir la cinquiÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨me vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o">
+          <img src="https://img.youtube.com/vi/SdRKQPOQ6ak/hqdefault.jpg" alt="Miniature de la cinquiÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨me vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o" loading="lazy" />
+        </button>
+        <button class="video-thumbnail" type="button" data-video-url="https://youtu.be/7YZ4StKHW-Q?list=RD7YZ4StKHW-Q" aria-label="Ouvrir la vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o">
+          <img src="https://img.youtube.com/vi/7YZ4StKHW-Q/hqdefault.jpg" alt="Miniature de la vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o" loading="lazy" />
+        </button>
+        <button class="video-thumbnail" type="button" data-video-url="https://youtu.be/AtDMb6x8qXg?list=RDAtDMb6x8qXg" aria-label="Ouvrir la quatriÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨me vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o">
+          <img src="https://img.youtube.com/vi/AtDMb6x8qXg/hqdefault.jpg" alt="Miniature de la quatriÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨me vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o" loading="lazy" />
+        </button>
+        <button class="video-thumbnail" type="button" data-video-url="https://youtu.be/oRyufP4qVaI?list=RDoRyufP4qVaI" aria-label="Ouvrir la troisiÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨me vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o">
+          <img src="https://img.youtube.com/vi/oRyufP4qVaI/hqdefault.jpg" alt="Miniature de la troisiÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨me vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o" loading="lazy" />
+        </button>
+        <button class="video-thumbnail" type="button" data-video-url="https://youtu.be/LbHPVKACT6w" aria-label="Ouvrir la premiÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨re vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o">
+          <img src="https://img.youtube.com/vi/LbHPVKACT6w/hqdefault.jpg" alt="Miniature de la premiÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨re vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o" loading="lazy" />
+        </button>
+        <button type="button" data-full-image="photos du header/Capture-fi11277515x190.jpg" aria-label="Agrandir la photo reprÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©sentative">
+          <img src="photos du header/Capture-fi11277515x190.jpg" alt="Photo representative">
+        </button>
+        <button type="button" data-full-image="Photos ucs44/colombe paix-saint esprit..gif" aria-label="Agrandir la colombe de la paix">
+          <img src="Photos ucs44/colombe paix-saint esprit..gif" alt="Colombe de la paix" loading="lazy" />
+        </button>
+        <button type="button" data-full-image="Photos ucs44/mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©daille.jpg" aria-label="Agrandir la mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©daille">
+          <img src="Photos ucs44/mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©daille.jpg" alt="MÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©daille" loading="lazy" />
+        </button>
+      </div>
+      <a href="https://www.lacsf44.org/" target="_blank" rel="noopener noreferrer">Visiter le site de la CSF 44 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢</a>
+      <a href="https://www.facebook.com/share/v/1K8VUqKYNk/" target="_blank" rel="noopener noreferrer">Voir la vidÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©o sur Facebook ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢</a>
+      <p>DÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©couvrez nos initiatives pour une sociÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©tÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© plus solidaire</p>
     </div>
 
+    <!-- Blocs retirés de l'accueil à la demande.
     <section class="initiative-grid" aria-label="Initiatives principales">
       <article class="initiative-card">
         <h2>Lancement de la campagne</h2>
-        <p>Suivez la préparation et le lancement de notre campagne pour le développement de la solidarité.</p>
-        <a href="lancement-campagne.html">Consulter la campagne →</a>
+        <p>Suivez la prÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©paration et le lancement de notre campagne pour le dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©veloppement de la Solidarit&eacute;</strong></p>
+        <a href="lancement-campagne.html">Consulter la campagne ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢</a>
       </article>
 
       <article class="initiative-card">
-        <h2>Élections des représentants des locataires 2026</h2>
-        <p>Retrouvez les informations et les démarches liées aux élections des représentants des locataires.</p>
-        <a href="elections-representants-locataires-2026.html">Consulter les élections →</a>
+        <h2>ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°lections des repr&eacute;sentants des locataires 2026</h2>
+        <p>Retrouvez les informations et les d&eacute;marches liÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©es aux ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©lections des repr&eacute;sentants des locataires.</p>
+        <a href="elections-representants-locataires-2026.html">Consulter les ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©lections ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢</a>
       </article>
     </section>
 
-    <section class="theme-section" aria-label="Thèmes principaux">
+    <section class="theme-section" aria-label="ThÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨mes principaux">
       <article class="theme-card theme-intro">
         <h2>Qui sommes-nous ?</h2>
         <p>
-          L'Union Citoyenne Solidarité 44 est une association engagée depuis
-          plusieurs années pour renforcer la solidarité, promouvoir la
-          citoyenneté active et soutenir les initiatives locales en
+          L'Union Citoyenne Solidarit&eacute; 44 est une association engagÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©e depuis
+          plusieurs annÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©es pour renforcer la Solidarit&eacute; promouvoir la
+          citoyennet&eacute; active et soutenir les initiatives locales en
           Loire-Atlantique.
         </p>
         <p>
-          Nous réunissons les citoyens, les associations et les acteurs locaux
-          autour de démarches concrètes et transparentes.
+          Nous rÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©unissons les citoyens, les associations et les acteurs locaux
+          autour de d&eacute;marches concrÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨tes et transparentes.
         </p>
       </article>
 
       <article class="theme-card theme-udcsf">
         <h2>UDCSF44</h2>
         <p>
-          Retrouvez les actions, les élections des représentants des locataires
+          Retrouvez les actions, les ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©lections des repr&eacute;sentants des locataires
           et les documents de la CSF dans un seul topic.
         </p>
         <p>
-          <a href="udcsf44.html">Accéder au topic UDCSF44 →</a>
+          <a href="udcsf44.html">AccÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©der au topic UDCSF44 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢</a>
+
         </p>
+        <p class="locataires-habitat-label">locataires d'habitat-44</p>
+        <a href="vos-candidats-habitat44.html" aria-label="Voir les candidats Habitat44">
+          <img
+            class="candidate-preview"
+            src="Photos Habitat 44/VOS CANDIDATS H44.png"
+            alt="Vos candidats Habitat44"
+          />
+        </a>
       </article>
 
       <article class="theme-card theme-values">
         <h2>Nos Valeurs</h2>
         <ul>
-          <li><strong>Solidarité</strong> : entraide et soutien mutuel.</li>
-          <li><strong>Citoyenneté</strong> : contribution au bien commun.</li>
+          <li><strong>Solidarit&eacute;</strong> : entraide et soutien mutuel.</li>
+          <li><strong>Citoyennet&eacute;</strong> : contribution au bien commun.</li>
           <li><strong>Inclusion</strong> : accueil de tous les publics.</li>
-          <li><strong>Transparence</strong> : actions ouvertes et vérifiables.</li>
+          <li><strong>Transparence</strong> : actions ouvertes et vÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©rifiables.</li>
         </ul>
       </article>
 
@@ -495,10 +1014,49 @@
         <h2>Notre Impact</h2>
         <span class="impact-number">2015</span>
         <p>
-          Depuis notre création, nous avons accompagné de nombreuses personnes
-          dans leurs démarches administratives et leurs démarches collectives.
+          Depuis notre crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ation, nous avons accompagnÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© de nombreuses personnes
+          dans leurs d&eacute;marches administratives et leurs d&eacute;marches collectives.
         </p>
       </article>
     </section>
+    -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+      <button class="lightbox-close" type="button" aria-label="Fermer l'image agrandie">&times;</button>
+      <img id="lightbox-image" src="" alt="" />
+    </div>
+
+    <script>
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightbox-image");
+
+      document.querySelectorAll(".thumbnail-gallery button").forEach((thumbnail) => {
+        thumbnail.addEventListener("click", () => {
+          if (thumbnail.dataset.videoUrl) {
+            window.open(thumbnail.dataset.videoUrl, "_blank", "noopener,noreferrer");
+            return;
+          }
+          const image = thumbnail.querySelector("img");
+          lightboxImage.src = thumbnail.dataset.fullImage;
+          lightboxImage.alt = image.alt;
+          lightbox.classList.add("is-open");
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightboxImage.src = "";
+      }
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox || event.target.classList.contains("lightbox-close")) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLightbox();
+      });
+    </script>
+    <script src="site-header.js"></script>
   </body>
 </html>
